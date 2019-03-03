@@ -1,0 +1,19 @@
+一、文件结构
+/cfg -配置信息（生产时要重新配置，生产时为必须）
+/model --模型vo,便于数据的组织（生产时为必须）
+/tool --客户端的工具类（生产时为必须）
+
+/sample_http --使用http.sign方式的请求试例（生产时要删除）
+/sample_obj --使用rop.sign方式的请求试例（生产时要删除）
+
+二、两种请求方式
+http.sign主要使用对body的参数进行签名生成sign和附带时间戳方式请求--主要用于，单点登录，及猪八戒保全使用
+rop.sign主要使用对body的参数进行签名生成sign放到head头中，并在head中附带了请求方法及版本，时间信息--主要用于企业保全使用
+
+三、使用方法
+1.测试
+	先联系客服生成沙箱的appkey和appSecrect，并替换cfg中的相应值
+2.生产
+	先联系客服生成生产的appkey和appSecrect，并替换cfg中的相应值
+	删除/sample_http 和  /sample_obj夹，避免垃圾数据生成
+	webApi可以放到任意文件夹内，不影响使用
